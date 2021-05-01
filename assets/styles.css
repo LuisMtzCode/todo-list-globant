@@ -1,0 +1,171 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url("./fonts/OpenSans-Regular.ttf");
+}
+
+body {
+  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+  background-color: #2575fc;
+  font-family: OpenSans;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.5rem;
+}
+
+.card {
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+}
+
+.card input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.card button {
+  position: absolute;
+  right: 0;
+}
+
+.list {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.list li {
+  background-color: #fff;
+  width: 100%;
+  padding: 1rem 2.4rem 1rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  color: #222;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  word-break: break-all;
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.list li:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.list li input {
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.list li button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 1rem;
+  margin: auto;
+  cursor: pointer;
+  opacity: 0;
+  transition: ease opacity 0.5s;
+}
+
+.list li:hover button {
+  opacity: 1;
+}
+
+.round-checkbox {
+  position: relative;
+  margin-top: -5px;
+  margin-right: 20px;
+}
+
+.round-checkbox label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round-checkbox label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round-checkbox input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round-checkbox input[type="checkbox"]:checked + label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.round-checkbox input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+/* Desktop Size*/
+@media (min-width: 980px) {
+  .container {
+    height: 100%;
+    min-height: 50vh;
+  }
+
+  .card,
+  .list {
+    width: 50%;
+  }
+}

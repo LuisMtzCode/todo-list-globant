@@ -32,20 +32,31 @@ class Todo {
         todoList.innerHTML = '';
         this.todoList.forEach((todo, index) => {
             const li = document.createElement('li');
+            const div = document.createElement('div');
+            div.className = 'round-checkbox';
+
             const checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
-            checkbox.addEventListener('checked', (e) => {
+            checkbox.id = 'todo-' + index;
+
+            const label = document.createElement('label');
+            label.setAttribute('for', 'todo-' + index);
+            label.addEventListener('click', (e) => {
                 this.toggleChecked(index);
             });
+
             const text = document.createTextNode(todo.value);
-            if (todo.checked) checkbox.setAttribute('checked');
+            if (todo.checked) checkbox.setAttribute('checked', true);
 
             const button = document.createElement('button');
+            button.innerHTML = 'X';
             button.addEventListener('click', (e) => {
                 this.removeTodo(index);
-            })
+            });
+            div.appendChild(checkbox)
+            div.appendChild(label);
 
-            li.appendChild(checkbox);
+            li.appendChild(div);
             li.appendChild(text);
             li.appendChild(button);
             todoList.appendChild(li);
@@ -79,4 +90,5 @@ form.addEventListener('submit', e => {
     e.preventDefault();
     if (!input.value) return;
     todo.addTodo(input.value);
+    input.value = '';
 });
